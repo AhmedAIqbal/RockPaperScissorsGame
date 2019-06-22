@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsGame
 {
-    enum Choices
+    enum Choices           // to use them in Switch case 
     {
         Rock = 1,
         Paper = 2,
@@ -17,25 +17,25 @@ namespace RockPaperScissorsGame
         static void Main(string[] args)
 
 
-        {
-            const string Rock = "ROCK";
+        { 
+            // for program flexibility, if we want name change in future we just need to change const below and that's it
+            const string Rock = "ROCK";        
             const string Paper = "PAPER";
             const string Scissors = "SCISSORS";
-            const int MaxScore = 3;
+            const int MaxScore = 3; // we can change the logic of max score by defining this const 
 
+            // we need following variable in our rock paper scissor game
             string inputPlayer, inputCPU;
             Choices randomInt;
-
-
             bool playAgain = true;
 
 
-            while (playAgain)
+            while (playAgain) // this while checks if user wants to play again 
             {
                 int scorePlayer = 0;
                 int scoreCPU = 0;
 
-                while (scorePlayer < 3 && scoreCPU < 3)
+                while (scorePlayer < MaxScore && scoreCPU < MaxScore)
                 {
 
 
@@ -43,8 +43,8 @@ namespace RockPaperScissorsGame
                     inputPlayer = Console.ReadLine();
                     inputPlayer = inputPlayer.ToUpper();
 
-                    Random rnd = new Random();
-                    randomInt = (Choices)rnd.Next(1, 4);
+                    Random rnd = new Random(); 
+                    randomInt = (Choices)rnd.Next(1, 4); 
                     inputCPU = randomInt == Choices.Rock ? Rock : randomInt == Choices.Paper ? Paper : Scissors;
                     Console.WriteLine("computer chose " + inputCPU);
 
@@ -127,11 +127,7 @@ namespace RockPaperScissorsGame
                     {
                         Console.WriteLine("CPU wins");
                     }
-
-                    else
-                    {
-
-                    }
+                 
                 }
 
                 string Restart = "";
