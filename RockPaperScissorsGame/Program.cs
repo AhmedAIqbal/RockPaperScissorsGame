@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsGame
 {
-    enum Choices           // to use them in Switch case 
+    enum Choice           // to use them in Switch case 
     {
         Rock = 1,
         Paper = 2,
@@ -26,7 +26,7 @@ namespace RockPaperScissorsGame
 
             // we need following variable in our rock paper scissor game
             string inputPlayer, inputCPU;
-            Choices randomInt;
+            Choice randomInt;
             bool playAgain = true;
 
 
@@ -44,13 +44,13 @@ namespace RockPaperScissorsGame
                     inputPlayer = inputPlayer.ToUpper();
 
                     Random rnd = new Random(); 
-                    randomInt = (Choices)rnd.Next(1, 4); 
-                    inputCPU = randomInt == Choices.Rock ? Rock : randomInt == Choices.Paper ? Paper : Scissors;
+                    randomInt = (Choice)rnd.Next(1, 4); 
+                    inputCPU = randomInt == Choice.Rock ? Rock : randomInt == Choice.Paper ? Paper : Scissors;
                     Console.WriteLine("computer chose " + inputCPU);
 
                     switch (randomInt)
                     {
-                        case Choices.Rock:
+                        case Choice.Rock:
 
                             if (inputPlayer == inputCPU)
                                 Console.WriteLine("draw");
@@ -68,7 +68,7 @@ namespace RockPaperScissorsGame
                                 scoreCPU++;
                             }
                             break;
-                        case Choices.Paper:
+                        case Choice.Paper:
 
                             if (inputPlayer == inputCPU)
                                 Console.WriteLine("draw");
@@ -86,7 +86,7 @@ namespace RockPaperScissorsGame
                             }
                             break;
 
-                        case Choices.Scissors:
+                        case Choice.Scissors:
 
                             if (inputPlayer == inputCPU)
 
