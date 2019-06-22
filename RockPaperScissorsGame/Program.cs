@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace RockPaperScissorsGame
 {
     enum Choices
-    {Rock=1,
-    Paper= 2,
-    Scissors =3}
+    {
+        Rock = 1,
+        Paper = 2,
+        Scissors = 3
+    }
     class Program
     {
-        // ROCK PAPER SCISSOR
         static void Main(string[] args)
 
 
@@ -24,8 +25,8 @@ namespace RockPaperScissorsGame
 
             string inputPlayer, inputCPU;
             Choices randomInt;
-        
-           
+
+
             bool playAgain = true;
 
 
@@ -38,7 +39,7 @@ namespace RockPaperScissorsGame
                 {
 
 
-                    Console.Write("choose between {0}, {1}, and {2}:       ",Rock,Paper,Scissors);
+                    Console.Write("choose between {0}, {1}, and {2}:       ", Rock, Paper, Scissors);
                     inputPlayer = Console.ReadLine();
                     inputPlayer = inputPlayer.ToUpper();
 
@@ -115,7 +116,7 @@ namespace RockPaperScissorsGame
 
 
                     }
-                    Console.WriteLine("Scores :\tplayer  {0}  \t CPU  {1}",scorePlayer,scoreCPU);
+                    Console.WriteLine("Scores :\tplayer  {0}  \t CPU  {1}", scorePlayer, scoreCPU);
 
                     if (scorePlayer == MaxScore)
                     {
@@ -137,8 +138,8 @@ namespace RockPaperScissorsGame
                 do
                 {
                     Console.WriteLine("would you like to play again Y/N");
-                 Restart = Console.ReadLine().ToUpper();
-                
+                    Restart = Console.ReadLine().ToUpper();
+
                     if (Restart == "Y")
                     {
                         playAgain = true;
@@ -150,7 +151,7 @@ namespace RockPaperScissorsGame
                         playAgain = false;
                     }
                 } while (Restart != "N" && Restart != "Y");
-                
+
 
 
             }
