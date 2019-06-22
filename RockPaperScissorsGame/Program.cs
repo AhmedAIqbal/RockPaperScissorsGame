@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsGame
 {
+    enum Choices
+    {Rock=1,
+    Paper= 2,
+    Scissors =3}
     class Program
     {
         static void Main(string[] args)
 
 
         {
+            const string Rock = "ROCK";
+            const string Paper = "PAPER";
+            const string Scissors = "SCISSORS";
+            const int MaxScore = 3;
 
             string inputPlayer, inputCPU;
-            int randomInt;
+            Choices randomInt;
+        
            
             bool playAgain = true;
 
@@ -28,65 +37,60 @@ namespace RockPaperScissorsGame
                 {
 
 
-                    Console.Write("choose between ROCK, PAPER, and SCISSORS:       ");
+                    Console.Write("choose between {0}, {1}, and {2}:       ",Rock,Paper,Scissors);
                     inputPlayer = Console.ReadLine();
                     inputPlayer = inputPlayer.ToUpper();
 
                     Random rnd = new Random();
-                    randomInt = rnd.Next(1, 4);
-
+                    randomInt = (Choices)rnd.Next(1, 4);
+                    inputCPU = randomInt == Choices.Rock ? Rock : randomInt == Choices.Paper ? Paper : Scissors;
+                    Console.WriteLine("computer chose " + inputCPU);
 
                     switch (randomInt)
                     {
-                        case 1:
+                        case Choices.Rock:
 
-                            inputCPU = "ROCK";
-                            Console.WriteLine("computer chose ROCK");
-                            if (inputPlayer == "ROCK")
+                            if (inputPlayer == inputCPU)
                                 Console.WriteLine("draw");
 
-                            else if (inputPlayer == "PAPER")
+                            else if (inputPlayer == Paper)
                             {
                                 Console.WriteLine("PLAYER WINS");
                                 scorePlayer++;
                             }
 
 
-                            else if (inputPlayer == "SCISSORS")
+                            else if (inputPlayer == Scissors)
                             {
                                 Console.WriteLine("CPU WINS");
                                 scoreCPU++;
                             }
                             break;
-                        case 2:
+                        case Choices.Paper:
 
-                            inputCPU = "PAPER";
-                            Console.WriteLine("computer chose PAPER");
-                            if (inputPlayer == "PAPER")
+                            if (inputPlayer == inputCPU)
                                 Console.WriteLine("draw");
 
-                            else if (inputPlayer == "SCISSORS")
+                            else if (inputPlayer == Scissors)
                             {
                                 Console.WriteLine("PLAYER WINS");
                                 scorePlayer++;
                             }
 
-                            else if (inputPlayer == "ROCK")
+                            else if (inputPlayer == Rock)
                             {
                                 Console.WriteLine("CPU WINS");
                                 scoreCPU++;
                             }
                             break;
 
-                        case 3:
+                        case Choices.Scissors:
 
-                            inputCPU = "SCISSORS";
-                            Console.WriteLine("computer chose SCISSORS");
-                            if (inputPlayer == "SCISSORS")
+                            if (inputPlayer == inputCPU)
 
                                 Console.WriteLine("draw");
 
-                            else if (inputPlayer == "ROCK")
+                            else if (inputPlayer == Rock)
 
 
                             {
@@ -95,7 +99,7 @@ namespace RockPaperScissorsGame
                             }
 
 
-                            else if (inputPlayer == "PAPER")
+                            else if (inputPlayer == Paper)
                             {
                                 Console.WriteLine("CPU WINS");
                                 scoreCPU++;
@@ -112,12 +116,12 @@ namespace RockPaperScissorsGame
                     }
                     Console.WriteLine("Scores :\tplayer  {0}  \t CPU  {1}",scorePlayer,scoreCPU);
 
-                    if (scorePlayer == 3)
+                    if (scorePlayer == MaxScore)
                     {
                         Console.WriteLine("player wins");
                     }
 
-                    else if (scoreCPU == 3)
+                    else if (scoreCPU == MaxScore)
                     {
                         Console.WriteLine("CPU wins");
                     }
@@ -151,4 +155,5 @@ namespace RockPaperScissorsGame
             }
         }
     }
+
 }
