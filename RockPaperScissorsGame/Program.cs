@@ -12,6 +12,7 @@ namespace RockPaperScissorsGame
     Scissors =3}
     class Program
     {
+        // ROCK PAPER SCISSOR
         static void Main(string[] args)
 
 
